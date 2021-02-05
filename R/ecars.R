@@ -12,6 +12,10 @@
 #'
 #' @examples
 #' ecars(X)
-ecars <- function(X, Y, alpha){
+ecars <- function(X, Y, alpha=NULL){
+  if(is.null(alpha))
+  {
+    alpha <- median(alpha_estimate(X, Y))
+  }
   corpcor::crossprod.powcor.shrink(X, Y, alpha)
 }
