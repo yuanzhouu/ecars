@@ -9,9 +9,10 @@
 #'
 #' @examples
 #' Sigma <- matrix(0.1, 500, 500)
+#' diag(Sigma) <- rep(1, 500)
 #' X <- MASS::mvrnorm(500, rep(0, 500), Sigma)
 #' ind <- 1:50
-#' Y <- apply(X[, ind],2,sum) + rnorm(500,0, sqrt(5))
+#' Y <- apply(X[, ind],1,sum) + rnorm(500,0, sqrt(0.1))
 #' varest_gcv(X, Y)
 varest_gcv <- function (x, y) {
   n = nrow(x)
